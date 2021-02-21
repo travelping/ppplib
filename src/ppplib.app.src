@@ -1,0 +1,14 @@
+{application, ppplib,
+ [{description, "PPP library"},
+  {vsn, "1.0.0"},
+  {registered, []},
+  {applications,
+   [kernel,
+    stdlib
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {licenses, ["Mozilla Public License 2.0"]},
+  {links, []}
+ ]}.
