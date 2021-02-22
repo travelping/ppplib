@@ -208,7 +208,7 @@ decode(<<?PPP_CHAP:16/integer, Code:8/integer, Id:8/integer, Length:16/integer, 
     <<Data:DataLen/bytes, _Pad/binary>> = Rest,
     decode_chap(Data, Id, Code);
 
-decode(<<Protocol:16/integer, Code:8/integer, Id:8/integer, Length:16/integer, Data/binary>>)
+decode(<<Protocol:16/integer, Code:8/integer, Id:8/integer, _:16/integer, Data/binary>>)
   when Protocol >= 16#8000 ->
     {Protocol, cp_code(Code), Id, Data}.
 
