@@ -24,6 +24,5 @@ jobs:
       env:
         HEX_API_KEY: ${{ secrets.HEX_API_KEY }}
       run: |
-           echo -n $HEX_API_KEY | sha1sum
            rebar3 edoc
-           DEBUG=1 rebar3 hex publish -r hexpm --yes
+           rebar3 hex publish -r hexpm --yes
