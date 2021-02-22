@@ -2,6 +2,7 @@ ppplib
 ======
 
 [![Build Status][gh badge]][gh]
+[![Coverage Status][coveralls badge]][coveralls]
 [![Erlang Versions][erlang version badge]][gh]
 
 This library implements
@@ -17,4 +18,6 @@ Build
 <!-- Badges -->
 [gh]: https://github.com/travelping/ppplib/actions/workflows/main.yml
 [gh badge]: https://img.shields.io/github/workflow/status/travelping/ppplib/CI?style=flat-square
+[coveralls]: https://coveralls.io/github/travelping/ppplib
+[coveralls badge]: https://img.shields.io/coveralls/github/travelping/ppplib?style=flat-square
 [erlang version badge]: https://img.shields.io/badge/erlang-R22.0%20to%2023.2-blue.svg?style=flat-square
