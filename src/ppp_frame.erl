@@ -2,9 +2,11 @@
 %% License, v. 2.0. If a copy of the MPL was not distributed with this
 %% file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
--module(ppplib_frame).
+-module(ppp_frame).
 
 -export([decode/1, encode/1]).
+
+-ignore_xref([decode/1, encode/1]).
 
 -compile(bin_opt_info).
 -compile(inline).

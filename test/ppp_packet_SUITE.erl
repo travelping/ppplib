@@ -12,7 +12,7 @@
 %%%-------------------------------------------------------------------
 -module(ppp_packet_SUITE).
 
--compile(export_all).
+-compile([export_all, nowarn_export_all]).
 
 -include_lib("common_test/include/ct.hrl").
 
@@ -69,27 +69,27 @@ suite() ->
 	[{timetrap,{seconds,30}}].
 
 test_pppoe_padt(_Config) ->
-    PPPoE = ppplib_oeframe:decode(pppoe_padt()),
+    PPPoE = pppoe:decode(pppoe_padt()),
     ct:pal("PPPoE: ~p~n", [PPPoE]),
     ok.
 
 test_pppoe_padi(_Config) ->
-    PPPoE = ppplib_oeframe:decode(pppoe_padi()),
+    PPPoE = pppoe:decode(pppoe_padi()),
     ct:pal("PPPoE: ~p~n", [PPPoE]),
     ok.
 
 test_pppoe_pado(_Config) ->
-    PPPoE = ppplib_oeframe:decode(pppoe_pado()),
+    PPPoE = pppoe:decode(pppoe_pado()),
     ct:pal("PPPoE: ~p~n", [PPPoE]),
     ok.
 
 test_pppoe_padr(_Config) ->
-    PPPoE = ppplib_oeframe:decode(pppoe_padr()),
+    PPPoE = pppoe:decode(pppoe_padr()),
     ct:pal("PPPoE: ~p~n", [PPPoE]),
     ok.
 
 test_pppoe_pads(_Config) ->
-    PPPoE = ppplib_oeframe:decode(pppoe_pads()),
+    PPPoE = pppoe:decode(pppoe_pads()),
     ct:pal("PPPoE: ~p~n", [PPPoE]),
     ok.
 
