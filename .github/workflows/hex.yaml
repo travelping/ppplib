@@ -1,4 +1,4 @@
-name publish to hex.pm
+name: publish to hex.pm
 
 on:
   push:
