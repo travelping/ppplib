@@ -31,7 +31,10 @@ jobs:
       run: |
            rebar3 do xref
            rebar3 do ct
-           rebar3 as test do coveralls send || /bin/true
+    - name: Coveralls
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: rebar3 as test coveralls send || /bin/true
     - name: Archive Test Output
       if: ${{ always() }}
       uses: actions/upload-artifact@v2
