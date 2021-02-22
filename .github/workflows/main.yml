@@ -24,7 +24,8 @@ jobs:
       run: |
            apk update
            apk --no-cache upgrade
-           apk --no-cache add gcc git libc-dev libc-utils libgcc linux-headers make bash musl-dev musl-utils ncurses-dev pcre2 pkgconf scanelf wget zlib
+           apk --no-cache add gcc git libc-dev libc-utils libgcc linux-headers make bash \
+                              musl-dev musl-utils ncurses-dev pcre2 pkgconf scanelf wget zlib
     - name: Build
       run: rebar3 compile
     - name: Run tests
@@ -43,3 +44,15 @@ jobs:
         path: |
           _build/test/logs/
           !_build/test/logs/last
+
+  finish:
+    needs: test
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Coveralls Finished
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+           curl -v -k https://coveralls.io/webhook \
+                --header "Content-Type: application/json" \
+                --data "{\"repo_name\":\"$GITHUB_REPOSITORY\",\"repo_token\":\"$GITHUB_TOKEN\",\"payload\":{\"build_num\":$GITHUB_RUN_NUMBER,\"status\":\"done\"}}"
