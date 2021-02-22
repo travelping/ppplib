@@ -18,7 +18,7 @@ Build
     $ rebar3 compile
 
 <!-- Badges -->
-[hexpm]: https://hex.pm/packages/eradius
+[hexpm]: https://hex.pm/packages/ppplib
 [hexpm version]: https://img.shields.io/hexpm/v/ppplib.svg?style=flat
 [hexpm downloads]: https://img.shields.io/hexpm/dt/ppplib.svg?style=flat
 [gh]: https://github.com/travelping/ppplib/actions/workflows/main.yml
