@@ -26,5 +26,4 @@ jobs:
       run: |
            echo -n $HEX_API_KEY | sha1sum
            rebar3 edoc
-           rebar3 hex user whoami
            DEBUG=1 rebar3 hex publish -r hexpm --yes
