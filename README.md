@@ -16,6 +16,16 @@ Build
 -----
 
     $ rebar3 compile
+    
+Add `ppplib` to project: [Rebar3](https://www.rebar3.org/)
+-------
+
+* Edit file **rebar.config**:
+```erlang
+{deps, [
+    {ppplib, "1.0.0"},
+]}.
+```
 
 <!-- Badges -->
 [hexpm]: https://hex.pm/packages/ppplib
