@@ -8,9 +8,9 @@ ppplib
 [![Erlang Versions][erlang version badge]][gh]
 
 This library implements
-- PPP frame de/encoder.
-- PPPOE frame de/encoder.
-- PPP HDLC frame de/encapsulater.
+- `PPP` frame de/encoder.
+- `PPPOE` frame de/encoder.
+- `PPP` HDLC frame de/encapsulater.
 
 Build
 -----
