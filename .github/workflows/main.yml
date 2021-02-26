@@ -34,6 +34,7 @@ jobs:
     - name: Coveralls
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        COVERALLS_FLAG_NAME: ${{ matrix.otp }}
       run: DEBUG=1 rebar3 as test coveralls send || /bin/true
     - name: Archive Test Output
       if: ${{ always() }}
@@ -54,4 +55,4 @@ jobs:
       run: |
            curl -v -k https://coveralls.io/webhook \
                 --header "Content-Type: application/json" \
-                --data "{\"repo_name\":\"$GITHUB_REPOSITORY\",\"repo_token\":\"$GITHUB_TOKEN\",\"payload\":{\"build_num\":$GITHUB_RUN_NUMBER,\"status\":\"done\"}}"
+                --data "{\"repo_name\":\"$GITHUB_REPOSITORY\",\"repo_token\":\"$GITHUB_TOKEN\",\"payload\":{\"build_num\":$GITHUB_RUN_ID,\"status\":\"done\"}}"
