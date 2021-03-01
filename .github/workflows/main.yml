@@ -45,6 +45,24 @@ jobs:
           _build/test/logs/
           !_build/test/logs/last
 
+  slack:
+    needs: test
+    runs-on: ubuntu-20.04
+    if: always()
+    steps:
+    - name: Slack notification
+      uses: 8398a7/action-slack@v3
+      with:
+        author_name: "GitHub Actions"
+        username: ${{ github.event.repository.name }}
+        icon_emoji: ':octocat:'
+        fields: repo, message, ref, commit, author, action, eventName, workflow, job, took
+        status: ${{ needs.test.result }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+        MATRIX_CONTEXT: ${{ toJson(matrix) }}
+
   finish:
     needs: test
     runs-on: ubuntu-20.04
