@@ -19,10 +19,10 @@ Build
 
 <!-- Badges -->
 [hexpm]: https://hex.pm/packages/ppplib
-[hexpm version]: https://img.shields.io/hexpm/v/ppplib.svg?style=flat
-[hexpm downloads]: https://img.shields.io/hexpm/dt/ppplib.svg?style=flat
+[hexpm version]: https://img.shields.io/hexpm/v/ppplib.svg?style=flat-square
+[hexpm downloads]: https://img.shields.io/hexpm/dt/ppplib.svg?style=flat-square
 [gh]: https://github.com/travelping/ppplib/actions/workflows/main.yml
 [gh badge]: https://img.shields.io/github/workflow/status/travelping/ppplib/CI?style=flat-square
 [coveralls]: https://coveralls.io/github/travelping/ppplib
-[coveralls badge]: https://coveralls.io/repos/github/travelping/ppplib/badge.svg
+[coveralls badge]: https://img.shields.io/coveralls/github/travelping/ppplib?style=flat-square
 [erlang version badge]: https://img.shields.io/badge/erlang-22.0%20to%2023.2-blue.svg?style=flat-square
