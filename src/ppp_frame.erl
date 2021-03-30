@@ -18,132 +18,132 @@
 -define(PPP_VJC_COMP,    16#2d).	%% VJ compressed TCP
 -define(PPP_VJC_UNCOMP,  16#2f).	%% VJ uncompressed TCP
 -define(PPP_IPV6CP_COMP, 16#004f).
--define(PPP_IPV6,        16#57).	%% Internet Protocol Version 6
--define(PPP_COMP,        16#fd).	%% compressed packet
--define(PPP_IPCP,        16#8021).	%% IP Control Protocol
--define(PPP_ATCP,        16#8029).	%% AppleTalk Control Protocol
--define(PPP_IPXCP,       16#802b).	%% IPX Control Protocol
--define(PPP_IPV6CP,      16#8057).	%% IPv6 Control Protocol
--define(PPP_CCP,         16#80fd).	%% Compression Control Protocol
--define(PPP_ECP,         16#8053).	%% Encryption Control Protocol
--define(PPP_LCP,         16#c021).	%% Link Control Protocol
--define(PPP_PAP,         16#c023).	%% Password Authentication Protocol
--define(PPP_LQR,         16#c025).	%% Link Quality Report protocol
--define(PPP_CHAP,        16#c223).	%% Cryptographic Handshake Auth. Protocol
--define(PPP_CBCP,        16#c029).	%% Callback Control Protocol
--define(PPP_EAP,         16#c227).	%% Extensible Authentication Protocol
+-define(PPP_IPV6,        16#57).        %% Internet Protocol Version 6
+-define(PPP_COMP,        16#fd).        %% compressed packet
+-define(PPP_IPCP,        16#8021).      %% IP Control Protocol
+-define(PPP_ATCP,        16#8029).      %% AppleTalk Control Protocol
+-define(PPP_IPXCP,       16#802b).      %% IPX Control Protocol
+-define(PPP_IPV6CP,      16#8057).      %% IPv6 Control Protocol
+-define(PPP_CCP,         16#80fd).      %% Compression Control Protocol
+-define(PPP_ECP,         16#8053).      %% Encryption Control Protocol
+-define(PPP_LCP,         16#c021).      %% Link Control Protocol
+-define(PPP_PAP,         16#c023).      %% Password Authentication Protocol
+-define(PPP_LQR,         16#c025).      %% Link Quality Report protocol
+-define(PPP_CHAP,        16#c223).      %% Cryptographic Handshake Auth. Protocol
+-define(PPP_CBCP,        16#c029).      %% Callback Control Protocol
+-define(PPP_EAP,         16#c227).      %% Extensible Authentication Protocol
 
--define(IPCP_VJC_COMP,   16#2d).	%% Van Jacobson Compressed TCP/IP		[RFC1144][RFC1332]
--define(IPCP_IPH_COMP,   16#61).	%% Robust Header Compression (ROHC)		[RFC3241]
--define(IPCP_ROG_COMP,   16#03).	%% IP Header Compression			[RFC2507][RFC3544]
+-define(IPCP_VJC_COMP,   16#2d).        %% Van Jacobson Compressed TCP/IP               [RFC1144][RFC1332]
+-define(IPCP_IPH_COMP,   16#61).        %% Robust Header Compression (ROHC)             [RFC3241]
+-define(IPCP_ROG_COMP,   16#03).        %% IP Header Compression                        [RFC2507][RFC3544]
 
 -define('CP-VendorSpecific',    0).
--define('CP-Configure-Request', 1).							%% [RFC1661]
--define('CP-Configure-Ack',     2).							%% [RFC1661]
--define('CP-Configure-Nak',     3).							%% [RFC1661]
--define('CP-Configure-Reject',  4).							%% [RFC1661]
--define('CP-Terminate-Request', 5).							%% [RFC1661]
--define('CP-Terminate-Ack',     6).							%% [RFC1661]
--define('CP-Code-Reject',       7).							%% [RFC1661]
--define('CP-Protocol-Reject',   8).							%% [RFC1661]
--define('CP-Echo-Request',      9).							%% [RFC1661]
--define('CP-Echo-Reply',       10).							%% [RFC1661]
--define('CP-Discard-Request',  11).							%% [RFC1661]
--define('CP-Identification',   12).							%% [RFC1570]
--define('CP-Time-Remaining',   13).							%% [RFC1570]
--define('CP-Reset-Request',    14).							%% [RFC1962]
--define('CP-Reset-Reply',      15).							%% [RFC1962]
+-define('CP-Configure-Request', 1).                                                     %% [RFC1661]
+-define('CP-Configure-Ack',     2).                                                     %% [RFC1661]
+-define('CP-Configure-Nak',     3).                                                     %% [RFC1661]
+-define('CP-Configure-Reject',  4).                                                     %% [RFC1661]
+-define('CP-Terminate-Request', 5).                                                     %% [RFC1661]
+-define('CP-Terminate-Ack',     6).                                                     %% [RFC1661]
+-define('CP-Code-Reject',       7).                                                     %% [RFC1661]
+-define('CP-Protocol-Reject',   8).                                                     %% [RFC1661]
+-define('CP-Echo-Request',      9).                                                     %% [RFC1661]
+-define('CP-Echo-Reply',       10).                                                     %% [RFC1661]
+-define('CP-Discard-Request',  11).                                                     %% [RFC1661]
+-define('CP-Identification',   12).                                                     %% [RFC1570]
+-define('CP-Time-Remaining',   13).                                                     %% [RFC1570]
+-define('CP-Reset-Request',    14).                                                     %% [RFC1962]
+-define('CP-Reset-Reply',      15).                                                     %% [RFC1962]
 
-cp_code(?'CP-VendorSpecific')		-> 'CP-VendorSpecific';
-cp_code(?'CP-Configure-Request')	-> 'CP-Configure-Request';
-cp_code(?'CP-Configure-Ack')		-> 'CP-Configure-Ack';
-cp_code(?'CP-Configure-Nak')		-> 'CP-Configure-Nak';
-cp_code(?'CP-Configure-Reject')		-> 'CP-Configure-Reject';
-cp_code(?'CP-Terminate-Request')	-> 'CP-Terminate-Request';
-cp_code(?'CP-Terminate-Ack')		-> 'CP-Terminate-Ack';
-cp_code(?'CP-Code-Reject')		-> 'CP-Code-Reject';
-cp_code(?'CP-Protocol-Reject')		-> 'CP-Protocol-Reject';
-cp_code(?'CP-Echo-Request')		-> 'CP-Echo-Request';
-cp_code(?'CP-Echo-Reply')		-> 'CP-Echo-Reply';
-cp_code(?'CP-Discard-Request')		-> 'CP-Discard-Request';
-cp_code(?'CP-Identification')		-> 'CP-Identification';
-cp_code(?'CP-Time-Remaining')		-> 'CP-Time-Remaining';
-cp_code(?'CP-Reset-Request')		-> 'CP-Reset-Request';
-cp_code(?'CP-Reset-Reply')		-> 'CP-Reset-Reply';
+cp_code(?'CP-VendorSpecific')           -> 'CP-VendorSpecific';
+cp_code(?'CP-Configure-Request')        -> 'CP-Configure-Request';
+cp_code(?'CP-Configure-Ack')            -> 'CP-Configure-Ack';
+cp_code(?'CP-Configure-Nak')            -> 'CP-Configure-Nak';
+cp_code(?'CP-Configure-Reject')         -> 'CP-Configure-Reject';
+cp_code(?'CP-Terminate-Request')        -> 'CP-Terminate-Request';
+cp_code(?'CP-Terminate-Ack')            -> 'CP-Terminate-Ack';
+cp_code(?'CP-Code-Reject')              -> 'CP-Code-Reject';
+cp_code(?'CP-Protocol-Reject')          -> 'CP-Protocol-Reject';
+cp_code(?'CP-Echo-Request')             -> 'CP-Echo-Request';
+cp_code(?'CP-Echo-Reply')               -> 'CP-Echo-Reply';
+cp_code(?'CP-Discard-Request')          -> 'CP-Discard-Request';
+cp_code(?'CP-Identification')           -> 'CP-Identification';
+cp_code(?'CP-Time-Remaining')           -> 'CP-Time-Remaining';
+cp_code(?'CP-Reset-Request')            -> 'CP-Reset-Request';
+cp_code(?'CP-Reset-Reply')              -> 'CP-Reset-Reply';
 
-cp_code('CP-VendorSpecific')		-> ?'CP-VendorSpecific';
-cp_code('CP-Configure-Request')		-> ?'CP-Configure-Request';
-cp_code('CP-Configure-Ack')		-> ?'CP-Configure-Ack';
-cp_code('CP-Configure-Nak')		-> ?'CP-Configure-Nak';
-cp_code('CP-Configure-Reject')		-> ?'CP-Configure-Reject';
-cp_code('CP-Terminate-Request')		-> ?'CP-Terminate-Request';
-cp_code('CP-Terminate-Ack')		-> ?'CP-Terminate-Ack';
-cp_code('CP-Code-Reject')		-> ?'CP-Code-Reject';
-cp_code('CP-Protocol-Reject')		-> ?'CP-Protocol-Reject';
-cp_code('CP-Echo-Request')		-> ?'CP-Echo-Request';
-cp_code('CP-Echo-Reply')		-> ?'CP-Echo-Reply';
-cp_code('CP-Discard-Request')		-> ?'CP-Discard-Request';
-cp_code('CP-Identification')		-> ?'CP-Identification';
-cp_code('CP-Time-Remaining')		-> ?'CP-Time-Remaining';
-cp_code('CP-Reset-Request')		-> ?'CP-Reset-Request';
-cp_code('CP-Reset-Reply')		-> ?'CP-Reset-Reply';
+cp_code('CP-VendorSpecific')            -> ?'CP-VendorSpecific';
+cp_code('CP-Configure-Request')         -> ?'CP-Configure-Request';
+cp_code('CP-Configure-Ack')             -> ?'CP-Configure-Ack';
+cp_code('CP-Configure-Nak')             -> ?'CP-Configure-Nak';
+cp_code('CP-Configure-Reject')          -> ?'CP-Configure-Reject';
+cp_code('CP-Terminate-Request')         -> ?'CP-Terminate-Request';
+cp_code('CP-Terminate-Ack')             -> ?'CP-Terminate-Ack';
+cp_code('CP-Code-Reject')               -> ?'CP-Code-Reject';
+cp_code('CP-Protocol-Reject')           -> ?'CP-Protocol-Reject';
+cp_code('CP-Echo-Request')              -> ?'CP-Echo-Request';
+cp_code('CP-Echo-Reply')                -> ?'CP-Echo-Reply';
+cp_code('CP-Discard-Request')           -> ?'CP-Discard-Request';
+cp_code('CP-Identification')            -> ?'CP-Identification';
+cp_code('CP-Time-Remaining')            -> ?'CP-Time-Remaining';
+cp_code('CP-Reset-Request')             -> ?'CP-Reset-Request';
+cp_code('CP-Reset-Reply')               -> ?'CP-Reset-Reply';
 
-cp_code(X) when is_integer(X)		-> X.
+cp_code(X) when is_integer(X)           -> X.
 
-protocol(ipcp)		-> ?PPP_IPCP;
-protocol(ipv6cp)	-> ?PPP_IPV6CP;
-protocol(lcp)		-> ?PPP_LCP;
-protocol(pap)		-> ?PPP_PAP;
-protocol(chap)		-> ?PPP_CHAP;
+protocol(ipcp)          -> ?PPP_IPCP;
+protocol(ipv6cp)        -> ?PPP_IPV6CP;
+protocol(lcp)           -> ?PPP_LCP;
+protocol(pap)           -> ?PPP_PAP;
+protocol(chap)          -> ?PPP_CHAP;
 
-protocol(?PPP_IPCP)	-> ipcp;
-protocol(?PPP_IPV6CP)	-> ipv6cp;
-protocol(?PPP_LCP)	-> lcp;
-protocol(?PPP_PAP)	-> pap;
-protocol(?PPP_CHAP)	-> chap;
+protocol(?PPP_IPCP)     -> ipcp;
+protocol(?PPP_IPV6CP)   -> ipv6cp;
+protocol(?PPP_LCP)      -> lcp;
+protocol(?PPP_PAP)      -> pap;
+protocol(?PPP_CHAP)     -> chap;
 
 protocol(X) when is_integer(X) -> X.
 
-cp_auth_protocol(?PPP_PAP)	-> pap;
-cp_auth_protocol(?PPP_CHAP)	-> chap;
-cp_auth_protocol(?PPP_EAP)	-> eap;
-cp_auth_protocol(pap)		-> ?PPP_PAP;
-cp_auth_protocol(chap)		-> ?PPP_CHAP;
-cp_auth_protocol(eap)		-> ?PPP_EAP.
+cp_auth_protocol(?PPP_PAP)      -> pap;
+cp_auth_protocol(?PPP_CHAP)     -> chap;
+cp_auth_protocol(?PPP_EAP)      -> eap;
+cp_auth_protocol(pap)           -> ?PPP_PAP;
+cp_auth_protocol(chap)          -> ?PPP_CHAP;
+cp_auth_protocol(eap)           -> ?PPP_EAP.
 
-chap_md_type(md5)		-> 5;
-chap_md_type(sha1)		-> 6;
-chap_md_type('MS-CHAP')		-> 128;
-chap_md_type('MS-CHAP-v2')	-> 129;
-chap_md_type(5)			-> md5;
-chap_md_type(6)			-> sha1;
-chap_md_type(128)		-> 'MS-CHAP';
-chap_md_type(129)		-> 'MS-CHAP-v2'.
+chap_md_type(md5)               -> 5;
+chap_md_type(sha1)              -> 6;
+chap_md_type('MS-CHAP')         -> 128;
+chap_md_type('MS-CHAP-v2')      -> 129;
+chap_md_type(5)                 -> md5;
+chap_md_type(6)                 -> sha1;
+chap_md_type(128)               -> 'MS-CHAP';
+chap_md_type(129)               -> 'MS-CHAP-v2'.
 
--define(CI_VENDOR,        0).	%% Vendor Specific
--define(CI_MRU,           1).	%% Maximum Receive Unit					[RFC1661]
--define(CI_ASYNCMAP,      2).	%% Async Control Character Map
--define(CI_AUTHTYPE,      3).	%% Authentication Type					[RFC1661]
--define(CI_QUALITY,       4).	%% Quality Protocol					[RFC1661]
--define(CI_MAGICNUMBER,   5).	%% Magic Number						[RFC1661]
--define(CI_PCOMPRESSION,  7).	%% Protocol Field Compression				[RFC1661]
--define(CI_ACCOMPRESSION, 8).	%% Address/Control Field Compression			[RFC1661]
--define(CI_CALLBACK,     13).	%% callback						[RFC1570]
--define(CI_MRRU,         17).	%% max reconstructed receive unit; multilink		[RFC1990]
--define(CI_SSNHF,        18).	%% short sequence numbers for multilink			[RFC1990]
--define(CI_EPDISC,       19).	%% endpoint discriminator				[RFC1990]
--define(CI_LDISC,        23).	%% Link-Discriminator					[RFC2125]
+-define(CI_VENDOR,        0).   %% Vendor Specific
+-define(CI_MRU,           1).   %% Maximum Receive Unit                                 [RFC1661]
+-define(CI_ASYNCMAP,      2).   %% Async Control Character Map
+-define(CI_AUTHTYPE,      3).   %% Authentication Type                                  [RFC1661]
+-define(CI_QUALITY,       4).   %% Quality Protocol                                     [RFC1661]
+-define(CI_MAGICNUMBER,   5).   %% Magic Number                                         [RFC1661]
+-define(CI_PCOMPRESSION,  7).   %% Protocol Field Compression                           [RFC1661]
+-define(CI_ACCOMPRESSION, 8).   %% Address/Control Field Compression                    [RFC1661]
+-define(CI_CALLBACK,     13).   %% callback                                             [RFC1570]
+-define(CI_MRRU,         17).   %% max reconstructed receive unit; multilink            [RFC1990]
+-define(CI_SSNHF,        18).   %% short sequence numbers for multilink                 [RFC1990]
+-define(CI_EPDISC,       19).   %% endpoint discriminator                               [RFC1990]
+-define(CI_LDISC,        23).   %% Link-Discriminator                                   [RFC2125]
 
--define(CI_ADDRS,		1).		%% IP Addresses				[RFC1332]
--define(CI_COMPRESSTYPE,	2).		%% Compression Type			[RFC1332]
--define(CI_ADDR,		3).		%% IP-Address				[RFC1332]
--define(CI_MS_DNS1,		129).		%% Primary DNS value			[RFC1877]
--define(CI_MS_WINS1,		130).		%% Primary WINS value			[RFC1877]
--define(CI_MS_DNS2,		131).		%% Secondary DNS value			[RFC1877]
--define(CI_MS_WINS2,		132).		%% Secondary WINS value			[RFC1877]
+-define(CI_ADDRS,               1).             %% IP Addresses                         [RFC1332]
+-define(CI_COMPRESSTYPE,        2).             %% Compression Type                     [RFC1332]
+-define(CI_ADDR,                3).             %% IP-Address                           [RFC1332]
+-define(CI_MS_DNS1,             129).           %% Primary DNS value                    [RFC1877]
+-define(CI_MS_WINS1,            130).           %% Primary WINS value                   [RFC1877]
+-define(CI_MS_DNS2,             131).           %% Secondary DNS value                  [RFC1877]
+-define(CI_MS_WINS2,            132).           %% Secondary WINS value                 [RFC1877]
 
--define(CI_IFACEID,		1).		%% Interface-Identifier			[RFC5072]
--define(CI_IPV6_COMPRESSTYPE,	2).		%% IPv6-Compression-Protocol		[RFC5172]
+-define(CI_IFACEID,             1).             %% Interface-Identifier                 [RFC5072]
+-define(CI_IPV6_COMPRESSTYPE,   2).             %% IPv6-Compression-Protocol            [RFC5172]
 
 -define('PAP-Authentication-Request', 1).
 -define('PAP-Authenticate-Ack',       2).
@@ -249,20 +249,20 @@ encode({pap, 'PAP-Authentication-Request', Id, PeerId, Passwd}) ->
     PeerLength = size(PeerId),
     PassLength = size(Passwd),
     encode(<<?PPP_PAP:16>>, ?'PAP-Authentication-Request', Id,
-	   <<PeerLength:8, PeerId/binary, PassLength:8, Passwd/binary>>);
+           <<PeerLength:8, PeerId/binary, PassLength:8, Passwd/binary>>);
 encode({pap, Code, Id, Msg})
   when Code == 'PAP-Authenticate-Ack';
        Code == 'PAP-Authenticate-Nak'->
     MsgLength = size(Msg),
     encode(<<?PPP_PAP:16>>, pap_code(Code), Id,
-	   <<MsgLength:8, Msg/binary>>);
+           <<MsgLength:8, Msg/binary>>);
 
 encode({chap, Code, Id, Value, Name})
   when Code == 'CHAP-Challenge';
        Code == 'CHAP-Response' ->
     ValueSize = size(Value),
     encode(<<?PPP_CHAP:16>>, chap_code(Code), Id,
-	   <<ValueSize:8, Value/binary, Name/binary>>);
+           <<ValueSize:8, Value/binary, Name/binary>>);
 encode({chap, Code, Id, Msg})
   when Code == 'CHAP-Success';
        Code == 'CHAP-Failure' ->
