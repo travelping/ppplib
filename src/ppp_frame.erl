@@ -34,7 +34,7 @@
 -define(PPP_EAP,         16#c227).	%% Extensible Authentication Protocol
 
 -define(IPCP_VJC_COMP,   16#2d).	%% Van Jacobson Compressed TCP/IP		[RFC1144][RFC1332]
--define(IPCP_IPH_COMP,   16#61).	%% Robust Header Compression (ROHC) 		[RFC3241]
+-define(IPCP_IPH_COMP,   16#61).	%% Robust Header Compression (ROHC)		[RFC3241]
 -define(IPCP_ROG_COMP,   16#03).	%% IP Header Compression			[RFC2507][RFC3544]
 
 -define('CP-VendorSpecific',    0).
@@ -108,7 +108,7 @@ cp_auth_protocol(?PPP_PAP)	-> pap;
 cp_auth_protocol(?PPP_CHAP)	-> chap;
 cp_auth_protocol(?PPP_EAP)	-> eap;
 cp_auth_protocol(pap)		-> ?PPP_PAP;
-cp_auth_protocol(chap)		-> ?PPP_CHAP; 
+cp_auth_protocol(chap)		-> ?PPP_CHAP;
 cp_auth_protocol(eap)		-> ?PPP_EAP.
 
 chap_md_type(md5)		-> 5;
@@ -171,7 +171,7 @@ chap_code('CHAP-Success')    -> ?'CHAP-Success';
 chap_code('CHAP-Failure')    -> ?'CHAP-Failure'.
 
 %% ----------------------------------------
-% decoder API
+%% decoder API
 %% ----------------------------------------
 
 decode(<<?PPP_IP:8/integer, Info/binary>>) ->
@@ -213,7 +213,7 @@ decode(<<Protocol:16/integer, Code:8/integer, Id:8/integer, _:16/integer, Data/b
     {Protocol, cp_code(Code), Id, Data}.
 
 %% ----------------------------------------
-% encoder API
+%% encoder API
 %% ----------------------------------------
 
 encode({lcp, Code, Id, Options})
@@ -352,7 +352,7 @@ decode_pap(<<MsgLength:8/integer, Rest/binary>>, Id, Code)
 decode_chap(Msg, Id, Code)
   when Code == ?'CHAP-Success';
        Code == ?'CHAP-Failure' ->
-     {chap, chap_code(Code), Id, Msg};
+    {chap, chap_code(Code), Id, Msg};
 decode_chap(<<ValueSize:8/integer, Rest/binary>>, Id, Code)
   when Code == ?'CHAP-Challenge';
        Code == ?'CHAP-Response' ->
@@ -520,7 +520,7 @@ encode_lcp_option({mru, MRU}) ->
 encode_lcp_option({asyncmap, ACCM}) ->
     encode_lcp_option(?CI_ASYNCMAP, <<ACCM:32/integer>>);
 encode_lcp_option({auth, Auth})
-when Auth == eap; Auth == pap ->
+  when Auth == eap; Auth == pap ->
     encode_lcp_option(?CI_AUTHTYPE, <<(cp_auth_protocol(Auth)):16/integer>>);
 encode_lcp_option({auth, {Auth, MDType}})
   when Auth == chap ->
@@ -598,4 +598,3 @@ encode_ipv6cp_option({Type, Data}) when is_integer(Type), is_binary(Data) ->
 
 encode_ipv6cp_options(Options) ->
     << <<(encode_ipv6cp_option(O))/binary>> || O <- Options >>.
-

@@ -48,7 +48,7 @@ decap(<<Char:8/integer, Rest/binary>>, Acc) ->
 encap(<<>>, Acc) ->
     Acc;
 encap(<<Char:8/integer, Rest/binary>>, Acc)
- when Char < 16#20 ->
+  when Char < 16#20 ->
     encap(Rest, <<Acc/binary, 16#7d:8, (Char bxor 16#20):8>>);
 encap(<<Char:8/integer, Rest/binary>>, Acc) ->
     encap(Rest, <<Acc/binary, Char:8>>).
@@ -88,13 +88,13 @@ encap(<<Char:8/integer, Rest/binary>>, Acc) ->
 		 ]).
 
 crc16(List) ->
-   crc16(List,16#ffff).
+    crc16(List,16#ffff).
 crc16(<<>>,CRC) ->
-   CRC;
+    CRC;
 crc16(<<Value:8,Rest/binary>>,CRC) ->
-   Index = (CRC bxor Value) band 255,
-   NewCRC = (CRC bsr 8) bxor crc_index(Index),
-   crc16(Rest,NewCRC).
+    Index = (CRC bxor Value) band 255,
+    NewCRC = (CRC bsr 8) bxor crc_index(Index),
+    crc16(Rest,NewCRC).
 
 crc_index(N) ->
-   lists:nth(N+1,?CRC16Def).
+    lists:nth(N+1,?CRC16Def).
