@@ -1,14 +1,10 @@
-{application, ppplib,
+{application,
+ ppplib,
  [{description, "PPP library"},
   {vsn, semver},
   {registered, []},
-  {applications,
-   [kernel,
-    stdlib
-   ]},
-  {env,[]},
+  {applications, [kernel, stdlib]},
+  {env, []},
   {modules, []},
-
   {licenses, ["Mozilla Public License 2.0"]},
-  {links, [{"Github", "https://github.com/travelping/ppplib"}]}
- ]}.
+  {links, [{"Github", "https://github.com/travelping/ppplib"}]}]}.
