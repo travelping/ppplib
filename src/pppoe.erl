@@ -21,40 +21,40 @@
 -define(PPPOE_PADS, 16#65).
 -define(PPPOE_PADT, 16#a7).
 
--define(END_OF_LIST,		16#0000).
--define(SERVICE_NAME,		16#0101).
--define(AC_NAME,		16#0102).
--define(HOST_UNIQ,		16#0103).
--define(AC_COOKIE,		16#0104).
--define(VENDOR_SPECIFIC,	16#0105).
--define(RELAY_SESSION_ID,	16#0110).
--define(SERVICE_NAME_ERROR,	16#0201).
--define(AC_SYSTEM_ERROR,	16#0202).
--define(GENERIC_ERROR,		16#0203).
+-define(END_OF_LIST,            16#0000).
+-define(SERVICE_NAME,           16#0101).
+-define(AC_NAME,                16#0102).
+-define(HOST_UNIQ,              16#0103).
+-define(AC_COOKIE,              16#0104).
+-define(VENDOR_SPECIFIC,        16#0105).
+-define(RELAY_SESSION_ID,       16#0110).
+-define(SERVICE_NAME_ERROR,     16#0201).
+-define(AC_SYSTEM_ERROR,        16#0202).
+-define(GENERIC_ERROR,          16#0203).
 
-tag(?END_OF_LIST)		-> 'End-Of-List';
-tag(?SERVICE_NAME)		-> 'Service-Name';
-tag(?AC_NAME)			-> 'AC-Name';
-tag(?HOST_UNIQ)			-> 'Host-Uniq';
-tag(?AC_COOKIE)			-> 'AC-Cookie';
-tag(?VENDOR_SPECIFIC)		-> 'Vendor-Specific';
-tag(?RELAY_SESSION_ID)		-> 'Relay-Session-Id';
-tag(?SERVICE_NAME_ERROR)	-> 'Service-Name-Error';
-tag(?AC_SYSTEM_ERROR)		-> 'AC-System-Error';
-tag(?GENERIC_ERROR)		-> 'Generic-Error';
+tag(?END_OF_LIST)               -> 'End-Of-List';
+tag(?SERVICE_NAME)              -> 'Service-Name';
+tag(?AC_NAME)                   -> 'AC-Name';
+tag(?HOST_UNIQ)                 -> 'Host-Uniq';
+tag(?AC_COOKIE)                 -> 'AC-Cookie';
+tag(?VENDOR_SPECIFIC)           -> 'Vendor-Specific';
+tag(?RELAY_SESSION_ID)          -> 'Relay-Session-Id';
+tag(?SERVICE_NAME_ERROR)        -> 'Service-Name-Error';
+tag(?AC_SYSTEM_ERROR)           -> 'AC-System-Error';
+tag(?GENERIC_ERROR)             -> 'Generic-Error';
 
-tag('End-Of-List')		-> ?END_OF_LIST;
-tag('Service-Name')		-> ?SERVICE_NAME;
-tag('AC-Name')			-> ?AC_NAME;
-tag('Host-Uniq')		-> ?HOST_UNIQ;
-tag('AC-Cookie')		-> ?AC_COOKIE;
-tag('Vendor-Specific')		-> ?VENDOR_SPECIFIC;
-tag('Relay-Session-Id')		-> ?RELAY_SESSION_ID;
-tag('Service-Name-Error')	-> ?SERVICE_NAME_ERROR;
-tag('AC-System-Error')		-> ?AC_SYSTEM_ERROR;
-tag('Generic-Error')		-> ?GENERIC_ERROR;
+tag('End-Of-List')              -> ?END_OF_LIST;
+tag('Service-Name')             -> ?SERVICE_NAME;
+tag('AC-Name')                  -> ?AC_NAME;
+tag('Host-Uniq')                -> ?HOST_UNIQ;
+tag('AC-Cookie')                -> ?AC_COOKIE;
+tag('Vendor-Specific')          -> ?VENDOR_SPECIFIC;
+tag('Relay-Session-Id')         -> ?RELAY_SESSION_ID;
+tag('Service-Name-Error')       -> ?SERVICE_NAME_ERROR;
+tag('AC-System-Error')          -> ?AC_SYSTEM_ERROR;
+tag('Generic-Error')            -> ?GENERIC_ERROR;
 
-tag(X) when is_integer(X)	-> X.
+tag(X) when is_integer(X)       -> X.
 
 dslf_tag(16#01) -> 'ADSL-Agent-Circuit-Id';
 dslf_tag(16#02) -> 'ADSL-Agent-Remote-Id';
@@ -73,7 +73,7 @@ dslf_tag(16#8c) -> 'Actual-Interleaving-Delay-Upstream';
 dslf_tag(16#8d) -> 'Maximum-Interleaving-Delay-Downstream';
 dslf_tag(16#8e) -> 'Actual-Interleaving-Delay-Downstream';
 
-dslf_tag(X)				-> X.
+dslf_tag(X)                             -> X.
 
 pppoe_code(?PPPOE_PPP) -> ppp;
 pppoe_code(?PPPOE_PADO) -> pado;
@@ -91,7 +91,7 @@ pppoe_code(padt) -> ?PPPOE_PADT.
 
 
 decode(<<Version:4/integer, Type:4/integer, Code:8/integer,
-	 SessionId:16/integer, Length:16/integer, PayLoad:Length/binary, _Rest/binary>>)
+         SessionId:16/integer, Length:16/integer, PayLoad:Length/binary, _Rest/binary>>)
   when ?PPPOE_VERSION == Version,
        ?PPPOE_TYPE == Type ->
     decode(pppoe_code(Code), SessionId, PayLoad).
