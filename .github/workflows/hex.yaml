@@ -19,7 +19,9 @@ jobs:
                               musl-dev musl-utils ncurses-dev pcre2 pkgconf scanelf wget zlib
 
     - uses: actions/checkout@v2
-
+    - name: work around for permission issue
+      run: |
+           git config --global --add safe.directory /__w/ppplib/ppplib
     - name: Publish to Hex.pm
       env:
         HEX_API_KEY: ${{ secrets.HEX_API_KEY }}
